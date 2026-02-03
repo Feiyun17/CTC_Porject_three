@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boundary – Black Section</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <div class="introTitle">
+    Welcome to <span id="doorAnchor">Feiyun’s</span> Portfolio.
+  </div>
+
+  <main class="page">
+    <section class="spacerTop"></section>
+    <section class="trigger" data-fx-trigger></section>
+    <section class="spacerBottom" aria-hidden="true"></section>
+  </main>
+
+  <!-- Tail Overlay (BOUNDARY + 5 dots + About) -->
+  <div class="tailOverlay" aria-hidden="true">
+    <div class="tailStage">
+      <div class="tailTitle">BOUNDARY</div>
+
+      <a class="tailItem pos-blurring" href="showcase.html?item=blurring">•&nbsp;&nbsp;Blurring</a>
+      <a class="tailItem pos-overflowing" href="showcase.html?item=overflowing">•&nbsp;&nbsp;Overflowing</a>
+      <a class="tailItem pos-synergetic" href="showcase.html?item=synergetic-flow">•&nbsp;&nbsp;Synergetic Flow</a>
+      <a class="tailItem pos-shared" href="showcase.html?item=shared-boundary">•&nbsp;&nbsp;Shared Boundary</a>
+      <a class="tailItem pos-reconstruct" href="showcase.html?item=reconstructing-boundary">•&nbsp;&nbsp;Reconstructing Boundary</a>
+
+      <!-- ✅ 新增：About Feiyun -->
+      <a class="tailItem pos-about" href="about.html">•&nbsp;&nbsp;About Feiyun</a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

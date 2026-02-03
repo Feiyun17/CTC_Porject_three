@@ -1,0 +1,242 @@
+/* about.css — About page only */
+
+.about-body{
+  background:#fff;
+  color:#000;
+  font-family: "Microsoft YaHei UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;
+  font-size:10px;
+  line-height:1.5;
+  overflow-x:hidden;
+}
+
+/* 顶部四栏 */
+.about-head{
+  width:100%;
+  padding: 34px 0 0 0;
+}
+
+.about-head-grid{
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 80px;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 120px;
+  align-items:start;
+}
+
+.about-head-item{
+  appearance:none;
+  background:transparent;
+  border:0;
+  padding:0;
+  cursor:pointer;
+
+  font-family:'Noto Serif SC', serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color:#000;
+}
+
+.about-head-item.is-active{
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* 内容容器 */
+.about-wrap{
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 42px 80px 80px 80px;
+}
+
+/* band：连续滚动 + 段落间距 */
+.band{ width:100%; }
+.band-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 120px;
+  align-items:start;
+}
+
+/* 等距拉开 */
+.band-gap-lg{ margin-top: 220px; }
+.band-gap-xl{ margin-top: 300px; }
+
+.col{ min-width:0; }
+
+/* typography */
+.name{
+  font-family:'Noto Serif SC', serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0 0 18px 0;
+}
+
+.photo{ width: 220px; margin: 0 0 26px 0; }
+.bio{ font-size: 10px; line-height: 1.55; max-width: 260px; }
+
+.sec{
+  font-family:'Noto Serif SC', serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 10px 0;
+}
+
+.edu, .conn{ font-size:10px; line-height:1.65; }
+.school{ font-weight: 600; margin-top: 10px; }
+.year{ margin: 6px 0; opacity: 0.9; }
+.gap{ height: 12px; }
+
+/* 段内统一间距 */
+.spacer{ height: 110px; }
+
+.item{ max-width: 320px; }
+.item .t{
+  font-family:'Noto Serif SC', serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0 0 10px 0;
+}
+
+.org{ font-size: 9px; font-weight: 600; letter-spacing: 0.2px; margin-top: 10px; }
+.date, .role{ font-size: 9px; margin-top: 2px; opacity: 0.95; }
+.desc, .metaBlock{ font-size: 9px; line-height: 1.6; margin-top: 10px; }
+.metaBlock div{ margin-bottom: 2px; }
+
+.bul{ margin-top: 12px; padding-left: 14px; }
+.bul li{ font-size: 9px; line-height: 1.6; margin: 2px 0; }
+
+.inlineBul{ font-size: 9px; margin-top: 10px; line-height: 1.6; }
+
+/* =========================
+   ✅ Link underline rule
+   - ONLY clickable (<a>) has underline
+   - static (<span>) has NO underline
+========================= */
+
+/* 先把所有 .proj-link 的默认下划线去掉 */
+.proj-link{
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 只有 a.proj-link 才有下划线（能点进去的） */
+a.proj-link{
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+/* 悬停可点击的稍微强调 */
+a.proj-link:hover{
+  text-decoration-thickness: 1.5px;
+  opacity: 0.9;
+}
+
+/* 静态标题：不带下划线，但仍然可以触发中间标题 */
+.proj-link.is-static{
+  cursor: default;
+}
+
+/* =========================
+   Column filter
+========================= */
+.about-body.is-col .band-grid{
+  grid-template-columns: 1fr;
+  column-gap: 0;
+}
+
+.about-body.is-col .band-grid .col{ display:none; }
+
+.about-body.is-col.col-about    .band-grid .col[data-col="about"]{ display:block; }
+.about-body.is-col.col-work     .band-grid .col[data-col="work"]{ display:block; }
+.about-body.is-col.col-personal .band-grid .col[data-col="personal"]{ display:block; }
+.about-body.is-col.col-academic .band-grid .col[data-col="academic"]{ display:block; }
+
+/* =========================
+   Preview Overlay (center)
+========================= */
+#previewOverlay{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+
+  opacity: 0;
+  transition: opacity .14s ease;
+}
+
+#previewOverlay.is-on{
+  opacity: 1;
+}
+
+#previewOverlay img{
+  display:block;
+  max-width: min(78vw, 980px);
+  max-height: 72vh;
+  width: auto;
+  height: auto;
+}
+
+/* 中间大标题（更明显） */
+#previewText{
+  display:none;
+  font-family:'Noto Serif SC', serif;
+  font-size: clamp(28px, 3.4vw, 58px);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+/* footer back */
+.about-footer{
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 60px 80px 90px 80px;
+}
+
+.about-backBottom{
+  font-size: 10px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* responsive */
+@media (max-width: 980px){
+  .about-head-grid,
+  .about-wrap,
+  .about-footer{
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .about-head-grid{
+    grid-template-columns: 1fr 1fr;
+    row-gap: 10px;
+    column-gap: 18px;
+  }
+
+  .band-grid{
+    grid-template-columns: 1fr;
+    row-gap: 60px;
+    column-gap: 0;
+  }
+
+  .band-gap-lg{ margin-top: 160px; }
+  .band-gap-xl{ margin-top: 200px; }
+  .spacer{ height: 80px; }
+
+  .item{ max-width: 520px; }
+  .photo{ width: 200px; }
+
+  #previewOverlay img{
+    max-width: 86vw;
+    max-height: 62vh;
+  }
+}
