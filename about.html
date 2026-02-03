@@ -10,7 +10,7 @@
 </head>
 
 <body class="about-body">
-  <!-- 顶部四栏标题 -->
+  <!-- header -->
   <header class="about-head">
     <div class="about-head-grid">
       <button class="about-head-item" type="button" data-col="about">ABOUT</button>
@@ -20,14 +20,14 @@
     </div>
   </header>
 
-  <!-- 内容区：连续滚动（不是一页一页） -->
+  <!-- main -->
   <main class="about-wrap">
 
-    <!-- ===== Band 1 ===== -->
+    <!-- Band 1 -->
     <section class="band">
       <div class="band-grid">
 
-        <!-- ABOUT column -->
+        <!-- about -->
         <div class="col" data-col="about">
           <h1 class="name">Feiyun Zhuang</h1>
 
@@ -43,11 +43,11 @@
           </p>
         </div>
 
-        <!-- WORK column -->
+        <!-- work -->
         <div class="col" data-col="work">
           <article class="item">
             <h3 class="t">
-              <!-- 无链接：只在中间出大标题；不加图片 -->
+              <!-- no-link -->
               <span class="proj-hover" tabindex="0"
                 data-title="Urban Regeneration — 'yi Jin Department Store, Xujiahui Commercial District'">
                 Urban Regeneration — "yi Jin Department<br>
@@ -68,13 +68,13 @@
           </article>
         </div>
 
-        <!-- PERSONAL column -->
+        <!-- personal -->
         <div class="col" data-col="personal">
           <article class="item">
             <h3 class="t">
-              <!-- 有链接：才有下划线 + 可出图 -->
+              <!-- link -->
               <a class="proj-link proj-hover"
-                 href="showcase.html?item=shared-boundary-storage"
+                    href="Shared.html"
                  data-preview="Shared Boundary Storage.jpg"
                  data-title="Shared Boundary Storage">
                 Shared Boundary Storage
@@ -98,11 +98,11 @@
           </article>
         </div>
 
-        <!-- ACADEMIC column -->
+        <!-- academic -->
         <div class="col" data-col="academic">
           <article class="item">
             <h3 class="t">
-              <!-- 无链接也要中间大标题 -->
+              <!-- no-link -->
               <span class="proj-hover" tabindex="0"
                 data-title="Revitalization of Historic District">
                 Revitalization of Historic District
@@ -119,11 +119,11 @@
       </div>
     </section>
 
-    <!-- ===== Band 2 ===== -->
+    <!-- Band 2 -->
     <section class="band band-gap-lg">
       <div class="band-grid">
 
-        <!-- ABOUT column -->
+        <!-- about -->
         <div class="col" data-col="about">
           <h2 class="sec">Education</h2>
           <div class="edu">
@@ -147,7 +147,7 @@
           </div>
         </div>
 
-        <!-- WORK column -->
+        <!-- work -->
         <div class="col" data-col="work">
           <article class="item">
             <h3 class="t">
@@ -189,12 +189,12 @@
           </article>
         </div>
 
-        <!-- PERSONAL column -->
+        <!-- personal -->
         <div class="col" data-col="personal">
           <article class="item">
             <h3 class="t">
               <a class="proj-link proj-hover"
-                 href="showcase.html?item=another-layer-of-boundaries"
+                 href="Another Layer.html"
                  data-preview="another-layer-of-boundaries.jpg"
                  data-title="Another Layer of Boundaries">
                 Another Layer of Boundaries
@@ -222,7 +222,7 @@
           <article class="item">
             <h3 class="t">
               <a class="proj-link proj-hover"
-                 href="showcase.html?item=overflowing-boundaries-collective-housing"
+                 href="overflowing.html"
                  data-preview="overflowing-boundaries-collective-housing.jpg"
                  data-title="Overflowing Boundaries — Collective Housing">
                 Overflowing Boundaries<br>Collective Housing
@@ -248,7 +248,7 @@
           </article>
         </div>
 
-        <!-- ACADEMIC column -->
+        <!-- academic -->
         <div class="col" data-col="academic">
           <article class="item">
             <h3 class="t">
@@ -289,7 +289,7 @@
       </div>
     </section>
 
-    <!-- ===== Band 3 ===== -->
+    <!-- Band 3 -->
     <section class="band band-gap-xl">
       <div class="band-grid">
 
@@ -361,7 +361,7 @@
           <article class="item">
             <h3 class="t">
               <a class="proj-link proj-hover"
-                 href="showcase.html?item=synergetic-flow-neighborhood-center"
+                 href="Synergetic Flow.html"
                  data-preview="synergetic-flow-neighborhood-center.jpg"
                  data-title="Synergetic Flow — Neighborhood Center">
                 Synergetic Flow<br>
@@ -392,7 +392,7 @@
           <article class="item">
             <h3 class="t">
               <a class="proj-link proj-hover"
-                 href="showcase.html?item=blurring-boundaries-theater"
+                 href="BLURRING.html"
                  data-preview="blurring-boundaries-theater.jpg"
                  data-title="Blurring Boundaries — Theater">
                 Blurring boundaries<br>
@@ -455,7 +455,7 @@
       </div>
     </section>
 
-    <!-- ===== Band 4 ===== -->
+    <!-- Band 4 -->
     <section class="band band-gap-xl">
       <div class="band-grid">
 
@@ -526,7 +526,7 @@
       </div>
     </section>
 
-    <!-- ===== Band 5 ===== -->
+    <!-- Band 5 -->
     <section class="band band-gap-xl">
       <div class="band-grid">
 
@@ -589,21 +589,19 @@
 
   </main>
 
-  <!-- 页面底部 back -->
+  <!-- footer -->
   <footer class="about-footer">
     <a class="about-backBottom" href="index.html">Back</a>
   </footer>
 
-  <!-- 预览层：无边框/无白底（只有图片本身） -->
+  <!-- preview -->
   <div id="previewOverlay" aria-hidden="true">
     <img id="previewImg" alt="" />
     <div id="previewText"></div>
   </div>
 
   <script>
-    // =========================
-    // Column filter: click header
-    // =========================
+    /* column */
     (function () {
       const body = document.body;
       const btns = Array.from(document.querySelectorAll(".about-head-item"));
@@ -632,12 +630,7 @@
       });
     })();
 
-    // =========================
-    // Hover preview (center)
-    // - ANY .proj-hover triggers overlay
-    // - image only if data-preview exists
-    // - otherwise: big title text in center
-    // =========================
+    /* preview */
     const overlay = document.getElementById("previewOverlay");
     const pImg = document.getElementById("previewImg");
     const pText = document.getElementById("previewText");
@@ -667,6 +660,7 @@
       pText.textContent = "";
     }
 
+    /* desktop hover */
     document.addEventListener("mouseover", (e) => {
       const t = e.target.closest(".proj-hover");
       if (!t) return;
@@ -691,6 +685,36 @@
       if (!t) return;
       hidePreview();
     });
+
+    /* touch click */
+    (function () {
+      const isTouchLike = window.matchMedia && window.matchMedia("(hover: none)").matches;
+      if (!isTouchLike) return;
+
+      const armed = new WeakSet();
+
+      document.addEventListener("click", (e) => {
+        const t = e.target.closest(".proj-hover");
+
+        if (t) {
+          const isLink = t.tagName === "A";
+
+          if (isLink && !armed.has(t)) {
+            e.preventDefault();
+            armed.add(t);
+            showPreview(t);
+            return;
+          }
+
+          if (!isLink) {
+            showPreview(t);
+          }
+          return;
+        }
+
+        hidePreview();
+      }, { passive: false });
+    })();
   </script>
 </body>
 </html>

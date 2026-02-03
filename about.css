@@ -1,5 +1,4 @@
-/* about.css — About page only */
-
+/* base */
 .about-body{
   background:#fff;
   color:#000;
@@ -7,9 +6,54 @@
   font-size:10px;
   line-height:1.5;
   overflow-x:hidden;
+
+  /* vars */
+  --wrap-max: 1600px;
+  --wrap-pad: 80px;
+  --grid-gap: 120px;
+  --line: rgba(0,0,0,.35);
 }
 
-/* 顶部四栏 */
+/* dividers */
+.about-body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  --pad: var(--wrap-pad);
+  --content-max: var(--wrap-max);
+  --gap: var(--grid-gap);
+
+  --outer-max: calc(var(--content-max) + (2 * var(--pad)));
+  --outer-w: min(100vw, var(--outer-max));
+  --content-w: calc(var(--outer-w) - (2 * var(--pad)));
+  --content-left: calc((100vw - var(--outer-w)) / 2 + var(--pad));
+  --col: calc((var(--content-w) - (3 * var(--gap))) / 4);
+
+  background-image:
+    linear-gradient(var(--line), var(--line)),
+    linear-gradient(var(--line), var(--line)),
+    linear-gradient(var(--line), var(--line));
+  background-repeat: no-repeat;
+  background-size: 1px 100%, 1px 100%, 1px 100%;
+
+  background-position:
+    calc(var(--content-left) + (1 * var(--col)) + (0.5 * var(--gap))) 0,
+    calc(var(--content-left) + (2 * var(--col)) + (1.5 * var(--gap))) 0,
+    calc(var(--content-left) + (3 * var(--col)) + (2.5 * var(--gap))) 0;
+}
+
+/* above lines */
+.about-head,
+.about-wrap,
+.about-footer{
+  position: relative;
+  z-index: 1;
+}
+
+/* header */
 .about-head{
   width:100%;
   padding: 34px 0 0 0;
@@ -45,14 +89,14 @@
   text-underline-offset: 4px;
 }
 
-/* 内容容器 */
+/* layout */
 .about-wrap{
   max-width: 1600px;
   margin: 0 auto;
   padding: 42px 80px 80px 80px;
 }
 
-/* band：连续滚动；统一间距（更“等距”） */
+/* band */
 .band{ width:100%; }
 .band-grid{
   display:grid;
@@ -61,13 +105,13 @@
   align-items:start;
 }
 
-/* band 间距：更一致、更松一点 */
+/* spacing */
 .band-gap-lg{ margin-top: 220px; }
 .band-gap-xl{ margin-top: 260px; }
 
 .col{ min-width:0; }
 
-/* typography */
+/* type */
 .name{
   font-family:'Noto Serif SC', serif;
   font-size: 22px;
@@ -90,7 +134,7 @@
 .year{ margin: 6px 0; opacity: 0.9; }
 .gap{ height: 12px; }
 
-/* ✅ 统一“等距”的关键：所有 spacer 统一高度 */
+/* spacer */
 .spacer{ height: 84px; }
 
 .item{ max-width: 320px; }
@@ -112,9 +156,7 @@
 
 .inlineBul{ font-size: 9px; margin-top: 10px; line-height: 1.6; }
 
-/* =========================
-   ✅ 只有能点进去的才有下划线
-========================= */
+/* links */
 a.proj-link{
   color: inherit;
   text-decoration: underline;
@@ -127,16 +169,14 @@ a.proj-link:hover{
   opacity: 0.9;
 }
 
-/* 无链接标题：不下划线 */
+/* no-link */
 .proj-hover{
   color: inherit;
   text-decoration: none;
   cursor: default;
 }
 
-/* =========================
-   Column filter
-========================= */
+/* column */
 .about-body.is-col .band-grid{
   grid-template-columns: 1fr;
   column-gap: 0;
@@ -149,11 +189,7 @@ a.proj-link:hover{
 .about-body.is-col.col-personal .band-grid .col[data-col="personal"]{ display:block; }
 .about-body.is-col.col-academic .band-grid .col[data-col="academic"]{ display:block; }
 
-/* =========================
-   Preview Overlay (center)
-   - no border, no white padding
-   - ✅ 标题更明显更大
-========================= */
+/* overlay */
 #previewOverlay{
   position: fixed;
   left: 50%;
@@ -176,7 +212,7 @@ a.proj-link:hover{
   height: auto;
 }
 
-/* 当没有图片时显示标题（更大更明显） */
+/* overlay text */
 #previewText{
   display:none;
   font-family:'Noto Serif SC', serif;
@@ -189,7 +225,7 @@ a.proj-link:hover{
   max-width: min(80vw, 980px);
 }
 
-/* footer back */
+/* footer */
 .about-footer{
   max-width: 1600px;
   margin: 0 auto;
@@ -232,4 +268,67 @@ a.proj-link:hover{
     max-width: 86vw;
     max-height: 62vh;
   }
+
+  .about-body::before{ display:none; }
+
+  .about-body{
+    --wrap-pad: 22px;
+    --grid-gap: 18px;
+  }
+}
+
+/* <=520 */
+@media (max-width: 520px){
+  .about-head{ padding-top: 22px; }
+
+  .about-head-grid{
+    padding-left: 16px;
+    padding-right: 16px;
+    row-gap: 8px;
+    column-gap: 14px;
+  }
+
+  .about-head-item{
+    padding: 10px 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .about-wrap{
+    padding: 28px 16px 56px 16px;
+  }
+
+  .band-gap-lg{ margin-top: 120px; }
+  .band-gap-xl{ margin-top: 150px; }
+
+  .name{ font-size: 20px; margin-bottom: 14px; }
+  .photo{ width: 170px; margin-bottom: 20px; }
+  .bio{ max-width: 320px; }
+
+  .sec{ font-size: 15px; }
+
+  .spacer{ height: 46px; }
+
+  .item{ max-width: 100%; }
+
+  #previewOverlay img{
+    max-width: 92vw;
+    max-height: 60vh;
+  }
+
+  #previewText{
+    max-width: 92vw;
+    font-size: clamp(26px, 7vw, 46px);
+  }
+}
+
+/* touch */
+@media (hover: none){
+  .proj-hover{
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* no lines in single-col */
+.about-body.is-col::before{
+  display: none;
 }

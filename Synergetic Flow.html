@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — Blurring Boundaries</title>
+
+  <style>
+    html, body { height: 100%; }
+
+    body{
+      margin: 0;
+      background: #fff;
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
+      cursor: default;
+    }
+
+    /* strip */
+    .strip{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 120px;
+    }
+
+    /* images */
+    .strip img{
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 140px;
+      pointer-events: none;
+    }
+
+    /* last */
+    .strip img:last-of-type{
+      margin-bottom: 0;
+    }
+
+    /* back */
+    .back-link{
+      margin-top: 180px;
+      padding-bottom: 80px;
+      text-align: center;
+    }
+
+    .back-link button{
+      background: none;
+      border: none;
+      padding: 0;
+
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: #777;
+      cursor: pointer;
+
+      pointer-events: auto;
+    }
+
+    .back-link button:hover{
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="strip">
+    <img src="13.png" alt="01" draggable="false" />
+    <img src="14.png" alt="02" draggable="false" />
+    <img src="15.png" alt="03" draggable="false" />
+    <img src="16.png" alt="04" draggable="false" />
+    <img src="17.png" alt="05" draggable="false" />
+
+    <!-- back -->
+    <div class="back-link">
+      <button type="button" onclick="history.back()">← Back</button>
+    </div>
+  </main>
+
+  <script>
+    /* disable */
+    document.addEventListener("contextmenu", e => e.preventDefault());
+    document.addEventListener("dragstart", e => e.preventDefault());
+  </script>
+</body>
+</html>

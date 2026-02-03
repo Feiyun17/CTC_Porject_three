@@ -156,3 +156,28 @@ body.tail-ready .tailOverlay{
     top: 50%;
   }
 }
+
+/* =========================
+   底部返回按钮（真正的 back）
+========================= */
+.back-link{
+  margin-top: 200px;      /* 和最后一张图拉开距离 */
+  text-align: center;
+}
+
+.back-link button{
+  background: none;
+  border: none;
+  padding: 0;
+
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #777;
+  cursor: pointer;
+
+  pointer-events: auto;   /* 只允许它被点 */
+}
+
+.back-link button:hover{
+  color: #000;
+}
